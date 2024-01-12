@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:plg_test/models/User.dart';
 
 class SuperUserPage extends StatelessWidget {
-  final User user;
+  final dynamic user;
 
   SuperUserPage({required this.user, Key? key}) : super(key: key);
 
@@ -78,7 +78,7 @@ class SuperUserPage extends StatelessWidget {
 }
 
 class WelcomeMessage extends StatelessWidget {
-  final User user;
+  final dynamic user;
 
   WelcomeMessage({required this.user});
 
@@ -88,7 +88,7 @@ class WelcomeMessage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          'Welcome, ${user.username}!',
+          'Welcome, ${user['username']}!',
           style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,

@@ -12,11 +12,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // Verificar si hay datos de sesión
     if (sessionData != null) {
-      // Si hay datos de sesión, construir el usuario desde los datos
-      final user = User.fromJson(sessionData!);
+      print("from MyApp");
+      print(sessionData.runtimeType);
+      dynamic user = sessionData;
+      // // Si hay datos de sesión, construir el usuario desde los datos
+      // final user = User.fromJson(sessionData!);
 
       // Realizar la navegación basada en el roleId del usuario
-      if (user.role == 3) {
+      if (user['role'] == 3) {
         // Si el roleId es 3, navega a la pantalla de SuperUser
         return MaterialApp(
           home: SuperUserPage(user: user),

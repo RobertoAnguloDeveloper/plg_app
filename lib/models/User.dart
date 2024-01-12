@@ -17,11 +17,11 @@ class User {
     print("from Json");
     print(json);
     return User(
-        id: json['userId'],
+        id: json['id'],
         username: json['username'],
         password: json['password'],
         email: json['email'],
-        role: json['roleId']);
+        role: json['role']['id']);
   }
 
   Map<String, dynamic> toJson() {
