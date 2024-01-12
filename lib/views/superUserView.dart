@@ -38,22 +38,25 @@ class SuperUserPage extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          DrawerHeader(
-            decoration: BoxDecoration(
-              color: Colors.blue,
-            ),
-            child: Text(
-              'Menu',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 24,
+          Container(
+            height: 100, // Ajusta este valor según sea necesario
+            child: DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+              child: Text(
+                'Menu',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
               ),
             ),
           ),
           ListTile(
             title: Text(
               'Opción 1',
-              style: TextStyle(color: Colors.white), // Establecer color del texto
+              style: TextStyle(color: Colors.black),
             ),
             onTap: () {
               Navigator.pop(context);
@@ -62,7 +65,7 @@ class SuperUserPage extends StatelessWidget {
           ListTile(
             title: Text(
               'Opción 2',
-              style: TextStyle(color: Colors.white), // Establecer color del texto
+              style: TextStyle(color: Colors.black),
             ),
             onTap: () {
               Navigator.pop(context);
@@ -73,7 +76,6 @@ class SuperUserPage extends StatelessWidget {
     );
   }
 }
-
 
 class WelcomeMessage extends StatelessWidget {
   final User user;
