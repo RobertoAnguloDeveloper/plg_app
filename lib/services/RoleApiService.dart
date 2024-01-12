@@ -23,7 +23,7 @@ class RoleApiService {
   }
 
   Future<void> updateRole(int roleId, Role updatedRole) async {
-    final response = await apiService.put('/api/role/$roleId', updatedRole.toJson()); // Asegúrate de tener el endpoint correcto
+    final response = await apiService.put('/api/role/update', updatedRole.toJson()); // Asegúrate de tener el endpoint correcto
     if (response.statusCode != 200) {
       throw Exception('Failed to update role');
     }

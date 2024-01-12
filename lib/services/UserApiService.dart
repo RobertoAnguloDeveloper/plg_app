@@ -24,7 +24,7 @@ class UserApiService {
   }
 
   Future<void> updateUser(int userId, User updatedUser) async {
-    final response = await apiService.put('/api/user/$userId', updatedUser.toJson());
+    final response = await apiService.put('/api/user/update', updatedUser.toJson());
     if (response.statusCode != 200) {
       throw Exception('Failed to update user');
     }
