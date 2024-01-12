@@ -15,9 +15,6 @@ class MyApp extends StatelessWidget {
       // Si hay datos de sesión, construir el usuario desde los datos
       final user = User.fromJson(sessionData!);
 
-      print("Session data");
-      print(user.role);
-
       // Realizar la navegación basada en el roleId del usuario
       if (user.role == 3) {
         // Si el roleId es 3, navega a la pantalla de SuperUser
