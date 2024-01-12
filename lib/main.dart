@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:plg_test/services/SessionManager.dart';
-import 'package:plg_test/models/User.dart';
 import 'package:plg_test/views/MyApp.dart';
 
 void main() async {
