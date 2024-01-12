@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:plg_test/services/UserApiService.dart';
-import 'package:plg_test/services/http.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
