@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:plg_test/models/User.dart';
 
 class SuperUserPage extends StatelessWidget {
   final dynamic user;

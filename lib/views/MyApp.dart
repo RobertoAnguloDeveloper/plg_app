@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:plg_test/models/User.dart';
 import 'package:plg_test/views/loginView.dart';
 import 'package:plg_test/views/superUserView.dart';
 
