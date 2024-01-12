@@ -13,7 +13,7 @@ class SessionManager {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setInt(_keyUserId, user.id);
     prefs.setString(_keyUsername, user.username);
-    prefs.setInt(_keyRoleId, user.role ?? 0);
+    prefs.setInt(_keyRoleId, user.role);
     prefs.setString(_keyPassword, user.password); // Guarda la contraseña
     prefs.setString(_keyEmail, user.email); // Guarda el correo electrónico
     // Guarda más datos de sesión según sea necesario

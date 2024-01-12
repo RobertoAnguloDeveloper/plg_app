@@ -1,7 +1,5 @@
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:plg_test/models/User.dart'; // Asegúrate de importar el modelo User
-import 'package:plg_test/services/UserApiService.dart';
+import 'package:plg_test/models/User.dart';
 
 class SuperUserPage extends StatelessWidget {
   final User user;
