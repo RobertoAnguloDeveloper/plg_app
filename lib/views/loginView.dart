@@ -1,5 +1,8 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:plg_test/services/SessionManager.dart';
 import 'package:plg_test/services/UserApiService.dart';
+import 'package:plg_test/views/superUserView.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -79,19 +82,34 @@ class _LoginFormState extends State<LoginForm> {
                 final enteredUsername = _usernameController.text;
                 final enteredPassword = _passwordController.text;
 
-                // Verificar si el usuario existe
-                final userExists = users.any((user) =>
+                // Buscar el usuario
+                final user = users.firstWhereOrNull((user) =>
                     user.username == enteredUsername && user.password == enteredPassword);
-                
-                // ScaffoldMessenger.of(context).showSnackBar(
-                //     SnackBar(content: Text(users.first.username+"-"+enteredUsername)),
-                //   );
 
-                if (userExists) {
-                  // Realizar la lógica de inicio de sesión aquí
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('Login Successful')),
-                  );
+                if (user != null) {
+
+                  // Guardar la sesión con el userId, username y roleId
+                  // Guardar la sesión con el usuario completo
+                  await SessionManager.saveSession(user);
+
+
+                  // Verificar el ID del rol
+                  if (user.role == 3) {
+                    // Conducir a otra pantalla si el ID del rol es 3 (Super user)
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => SuperUserPage(user: user!)),
+                      );
+
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('Login Successful')),
+                    );
+                  } else {
+                    // Mostrar mensaje si el ID del rol no es 3
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('Login Successful')),
+                    );
+                  }
                 } else {
                   // Mostrar mensaje si el usuario no existe
                   ScaffoldMessenger.of(context).showSnackBar(

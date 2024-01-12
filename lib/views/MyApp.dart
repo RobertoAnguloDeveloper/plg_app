@@ -1,25 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:plg_test/services/SessionManager.dart';
 import 'package:plg_test/models/User.dart';
 import 'package:plg_test/views/loginView.dart';
 import 'package:plg_test/views/superUserView.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
-  // Cargar los datos de la sesión
-  final sessionData = await SessionManager.getSession();
-
-  print(sessionData);
-
-  // Ejecutar la aplicación con los datos de la sesión
-  runApp(MyApp(sessionData: sessionData));
-}
-
 class MyApp extends StatelessWidget {
   final Map<String, dynamic>? sessionData;
 
-  const MyApp({Key? key, this.sessionData}) : super(key: key);
+  const MyApp({super.key, this.sessionData});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +16,7 @@ class MyApp extends StatelessWidget {
       final user = User.fromJson(sessionData!);
 
       print("Session data");
-      print(user.role?.toString());
+      print(user.role);
 
       // Realizar la navegación basada en el roleId del usuario
       if (user.role == 3) {
