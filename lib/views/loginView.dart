@@ -89,7 +89,6 @@ class _LoginFormState extends State<LoginForm> {
                     user.username == enteredUsername && user.password == enteredPassword);
 
                 if (user != null) {
-
                   // Guardar la sesión con el userId, username y roleId
                   // Guardar la sesión con el usuario completo
                   await SessionManager.saveSession(user);

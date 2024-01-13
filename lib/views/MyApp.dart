@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plg_test/models/User.dart';
 import 'package:plg_test/views/loginView.dart';
 import 'package:plg_test/views/superUserView.dart';
 
@@ -9,16 +10,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     // Verificar si hay datos de sesión
     if (sessionData != null) {
+      User user = User.fromJson2(sessionData);
       print("from MyApp");
-      print(sessionData.runtimeType);
-      dynamic user = sessionData;
+      print(user.runtimeType);
+      
       // // Si hay datos de sesión, construir el usuario desde los datos
       // final user = User.fromJson(sessionData!);
 
       // Realizar la navegación basada en el roleId del usuario
-      if (user['role'] == 3) {
+      if (user.role == 3) {
         // Si el roleId es 3, navega a la pantalla de SuperUser
         return MaterialApp(
           home: SuperUserPage(user: user),

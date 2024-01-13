@@ -12,4 +12,4 @@ void main() async {
 
   // Ejecutar la aplicación con los datos de la sesión
   runApp(MyApp(sessionData: sessionData));
-}
+} 

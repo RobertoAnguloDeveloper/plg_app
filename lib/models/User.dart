@@ -13,15 +13,15 @@ class User {
     required this.role,
   });
 
-  factory User.fromJson(Map<String, dynamic> json) {
+  factory User.fromJson(Map<String, dynamic>? json) {
     print("from Json");
     print(json);
     return User(
-        id: json['id'],
-        username: json['username'],
-        password: json['password'],
-        email: json['email'],
-        role: json['role']['id']);
+        id: json?['id'],
+        username: json?['username'],
+        password: json?['password'],
+        email: json?['email'],
+        role: json?['role']['id']);
   }
 
   Map<String, dynamic> toJson() {
@@ -32,6 +32,17 @@ class User {
       'email': email,
       'role': role // Asegúrate de llamar a toJson() solo si el rol no es nulo
     };
+  }
+
+  factory User.fromJson2(Map<String, dynamic>? json) {
+    print("from Json");
+    print(json);
+    return User(
+        id: json?['id'],
+        username: json?['username'],
+        password: json?['password'],
+        email: json?['email'],
+        role: json?['role']);
   }
 }
 
